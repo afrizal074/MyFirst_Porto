@@ -1,0 +1,162 @@
+import { motion, useInView } from "framer-motion";
+import { useRef, useState } from "react";
+import { Button } from "./ui/button";
+import { Input } from "./ui/input";
+import { Textarea } from "./ui/textarea";
+import { Mail, Github, Linkedin, Twitter } from "lucide-react";
+import { toast } from "sonner";
+
+const socialLinks = [
+  { icon: Github, href: "#", label: "GitHub" },
+  { icon: Linkedin, href: "#", label: "LinkedIn" },
+  { icon: Twitter, href: "#", label: "Twitter" },
+  { icon: Mail, href: "mailto:hello@example.com", label: "Email" }
+];
+
+export const Contact = () => {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, margin: "-100px" });
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: ""
+  });
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    toast.success("Message sent! I'll get back to you soon.");
+    setFormData({ name: "", email: "", message: "" });
+  };
+
+  return (
+    <section id="contact" className="py-32 relative overflow-hidden">
+      <div className="container px-6">
+        <motion.div
+          ref={ref}
+          initial={{ opacity: 0, y: 50 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+          transition={{ duration: 0.8 }}
+        >
+          <div className="text-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-bold mb-6">
+              Get In <span className="text-gradient">Touch</span>
+            </h2>
+            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
+              Have a project in mind? Let's create something amazing together
+            </p>
+          </div>
+
+          <div className="grid lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
+            {/* Contact Form */}
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-card border-glow rounded-2xl p-8 card-glow"
+            >
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium mb-2">
+                    Name
+                  </label>
+                  <Input
+                    id="name"
+                    value={formData.name}
+                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    placeholder="Your name"
+                    required
+                    className="bg-background/50 border-primary/20 focus:border-primary"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium mb-2">
+                    Email
+                  </label>
+                  <Input
+                    id="email"
+                    type="email"
+                    value={formData.email}
+                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    placeholder="your.email@example.com"
+                    required
+                    className="bg-background/50 border-primary/20 focus:border-primary"
+                  />
+                </div>
+                <div>
+                  <label htmlFor="message" className="block text-sm font-medium mb-2">
+                    Message
+                  </label>
+                  <Textarea
+                    id="message"
+                    value={formData.message}
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    placeholder="Tell me about your project..."
+                    required
+                    rows={6}
+                    className="bg-background/50 border-primary/20 focus:border-primary resize-none"
+                  />
+                </div>
+                <Button 
+                  type="submit" 
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-6 text-lg"
+                >
+                  Send Message
+                </Button>
+              </form>
+            </motion.div>
+
+            {/* Contact Info */}
+            <motion.div
+              initial={{ opacity: 0, x: 30 }}
+              animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 30 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              className="flex flex-col justify-center space-y-8"
+            >
+              <div>
+                <h3 className="text-3xl font-bold mb-4">Let's Connect</h3>
+                <p className="text-muted-foreground leading-relaxed text-lg">
+                  I'm always interested in hearing about new projects and opportunities. 
+                  Whether you have a question or just want to say hi, feel free to reach out!
+                </p>
+              </div>
+
+              <div className="space-y-4">
+                <h4 className="text-xl font-semibold mb-4">Find me on</h4>
+                <div className="flex gap-4">
+                  {socialLinks.map((social) => (
+                    <a
+                      key={social.label}
+                      href={social.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-12 h-12 rounded-xl bg-primary/10 hover:bg-primary/20 border border-primary/20 flex items-center justify-center transition-all duration-300 hover:scale-110 group"
+                      aria-label={social.label}
+                    >
+                      <social.icon className="w-5 h-5 text-primary group-hover:text-primary transition-colors" />
+                    </a>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-8">
+                <div className="bg-card border-glow rounded-2xl p-6">
+                  <p className="text-sm text-muted-foreground mb-2">Email me directly at</p>
+                  <a 
+                    href="mailto:hello@example.com" 
+                    className="text-xl font-semibold text-primary hover:underline"
+                  >
+                    hello@example.com
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Decorative elements */}
+      <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl -z-10" />
+      <div className="absolute bottom-20 right-10 w-96 h-96 bg-secondary/10 rounded-full blur-3xl -z-10" />
+    </section>
+  );
+};
