@@ -3,13 +3,13 @@
 name: Deploy to GitHub Pages
 
 on:
-  # Ulangi workflow ini setiap kali ada push ke branch 'main'
+  # Jalankan otomatis setiap kali Anda 'push' ke branch 'main'
   push:
-    branches: [main] # Ganti 'main' jika branch utama Anda berbeda
-  # Izinkan untuk menjalankan workflow ini secara manual dari tab Actions
+    branches: [main] # Ganti 'main' jika nama branch Anda berbeda
+  # Izinkan Anda menjalankan ini manual dari tab Actions
   workflow_dispatch:
 
-# Izinkan GITHUB_TOKEN untuk membuat deployment GitHub Pages
+# Izin yang diperlukan
 permissions:
   contents: read
   pages: write
@@ -24,7 +24,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20 # Sesuaikan dengan versi Node.js Anda jika perlu
+          node-version: 20
           cache: "npm"
       - name: Install dependencies
         run: npm ci
