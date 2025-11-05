@@ -7,9 +7,8 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // TAMBAHKAN BARIS INI
   base: "/myfirst_porto/", 
-  // --------------------
+  
 
   server: {
     host: "::",
