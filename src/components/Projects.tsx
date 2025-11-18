@@ -19,7 +19,7 @@ const projects = [
     title: "Bot Customer Service", 
     description: "Its .......", 
     tech: ["N8N", "Gemini API", "SerpAPI", "Google Sheets API"],
-    image: "/images/Bot Customer Service.jpg", // <-- Ganti dengan path gambar Anda
+    image: "/images/Bot-Customer-Service.jpg", // <-- Ganti dengan path gambar Anda
     demoUrl: "#", // <-- Ganti dengan link demo live Anda
     fullDescription: 
       "Its my Project trading Meme Coin."
@@ -28,7 +28,7 @@ const projects = [
     title: "Meme Coin Trading Crypto", 
     description: "Modern e-commerce solution with real-time inventory...", 
     tech: ["Phantom", "Trojan Telegram Bot", "GmGn"],
-    image: "/images/Meme Coin.jpg", // <-- Ganti dengan path gambar Anda
+    image: "/images/Meme-Coin.jpg", // <-- Ganti dengan path gambar Anda
     demoUrl: "#",
     fullDescription:
       "Penjelasan mendalam mengenai platform trading crypto. Bagaimana Anda menangani data real-time, keamanan, dan integrasi pembayaran. Ini akan muncul di dalam modal."

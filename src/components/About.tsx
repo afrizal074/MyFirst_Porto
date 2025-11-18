@@ -31,7 +31,7 @@ export const About = () => {
             transition={{ duration: 0.6, delay: 0.3 }}
           >
             <img 
-              src="/Foto.jpg" // <-- PASTIKAN INI ADALAH PATH FOTO ANDA
+              src="Foto.jpg" // <-- PASTIKAN INI ADALAH PATH FOTO ANDA
               alt="Foto Profil"
               className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover border-4 border-primary/30 shadow-lg card-glow"
             />
