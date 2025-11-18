@@ -3,30 +3,25 @@ import { useRef } from "react";
 
 const skillCategories = [
   {
-    category: "Frontend",
+    category: "Communication Languagaes",
     skills: [
-      { name: "React / Next.js", level: 95 },
-      { name: "TypeScript", level: 90 },
-      { name: "Three.js / WebGL", level: 85 },
-      { name: "Tailwind CSS", level: 95 }
+      { name: "Indonesian", level: 95 },
+      { name: "Engglish", level: 50 },
     ]
   },
   {
-    category: "Backend",
+    category: "Analysis",
     skills: [
-      { name: "Node.js", level: 85 },
-      { name: "Python", level: 80 },
-      { name: "PostgreSQL", level: 85 },
-      { name: "REST / GraphQL", level: 90 }
+      { name: "Crypto Market", level: 75 },
+      { name: "Bonds", level: 70 },
     ]
   },
   {
-    category: "Tools & Others",
+    category: "Tools",
     skills: [
-      { name: "Git / GitHub", level: 95 },
-      { name: "Docker", level: 80 },
-      { name: "Figma / Design", level: 90 },
-      { name: "CI/CD", level: 85 }
+      { name: "ChatGPT", level: 80 },
+      { name: "N8N", level: 80 },
+      { name: "Canva", level: 75 },
     ]
   }
 ];
